@@ -7,8 +7,11 @@ jobs:
   my_job:
     name: Terraform_Practice
     runs-on: ubuntu-22.04
-     
+    
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4    
+
       - name: Login to Azure
         uses: hyperskill/azure-login@v3.0.0
         with:
