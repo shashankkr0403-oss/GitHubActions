@@ -29,7 +29,6 @@ jobs:
       - name: Terraform Apply
         run: terraform apply -input=false -auto-approve
         
-		#-"input=false" prevents Terraform from waiting for interactive input.
-        #-"no-color" makes GitHub Actions logs cleaner and easier to read.
-		#-"auto-approve" auto-approves terraform apply
-          		
+		# -"input=false" prevents Terraform from waiting for interactive input.
+        # -"no-color" makes GitHub Actions logs cleaner and easier to read.
+		# -"auto-approve" auto-approves terraform apply		
