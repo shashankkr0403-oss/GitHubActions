@@ -3,35 +3,35 @@ name: Terraform_Practice
 on:
   workflow_dispatch:
   
- jobs:
-   my_job:
-     name: Terraform_Practice
-     runs-on: ubuntu-22.04
+jobs:
+  my_job:
+    name: Terraform_Practice
+    runs-on: ubuntu-22.04
      
-     steps:
-       - name: checkout
-       - uses: actions/checkout@v4
+    steps:
+      - name: checkout
+      - uses: actions/checkout@v4
        
        
-       - name: Azure Login
-       - uses: Azure/login@v3
-         with:
-           creds: |
-             {
-             "clientSecret":  "hOt8Q~weoqgDpDUlQiRjYIQKid6i5P5djKQgccy8",
-             "subscriptionId":  "268d57ac-35fd-49c6-b7a9-c0ce9f4c221a",
-             "tenantId":  "8118274f-b824-4932-8388-e1042bb85265",
-             "clientId":  "be7d4a8e-82c8-40f3-badc-f84c5d233490"
-             }    
+      - name: Azure Login
+      - uses: Azure/login@v3
+        with:
+          creds: |
+            {
+            "clientSecret":  "hOt8Q~weoqgDpDUlQiRjYIQKid6i5P5djKQgccy8",
+            "subscriptionId":  "268d57ac-35fd-49c6-b7a9-c0ce9f4c221a",
+            "tenantId":  "8118274f-b824-4932-8388-e1042bb85265",
+            "clientId":  "be7d4a8e-82c8-40f3-badc-f84c5d233490"
+            }    
              
-       - name: Terraform Init
-         run: terraform init
+      - name: Terraform Init
+        run: terraform init
 
-       - name: Terraform Validate
-         run: terraform validate
+      - name: Terraform Validate
+        run: terraform validate
 
-       - name: Terraform Plan
-         run: terraform plan
+      - name: Terraform Plan
+        run: terraform plan
 
-       - name: Terraform Apply
-         run: terraform apply -auto-approve         
+      - name: Terraform Apply
+        run: terraform apply -auto-approve         
