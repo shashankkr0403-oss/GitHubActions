@@ -9,12 +9,12 @@ jobs:
     runs-on: ubuntu-22.04
      
     steps:
-      - name: checkout
-      - uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
        
        
       - name: Azure Login
-      - uses: Azure/login@v3
+        uses: Azure/login@v3
         with:
           creds: |
             {
