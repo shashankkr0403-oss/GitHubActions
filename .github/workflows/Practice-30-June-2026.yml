@@ -26,12 +26,14 @@ permissions:
         name: setup and run terraform   
         runs-on: ubuntu-latest
         steps:
-          -name: Checkout Repository and setup terraform
-          uses: actions/checkout@v4
-          uses: hashicorp/setup-terraform@v4
+          - name: Checkout Repository
+            uses: actions/checkout@v4
+            
+          - name: Setup terraform  
+            uses: hashicorp/setup-terraform@v4
           
           - name: Terraform fmt
-          run: terraform fmt
+            run: terraform fmt
             
           - name: Terraform init
             run: terraform init 
