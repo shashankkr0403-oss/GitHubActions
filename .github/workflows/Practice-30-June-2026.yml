@@ -8,18 +8,18 @@ on:
 permissions:
   id-token: write
   contents: read
-    
-    jobs:
+  
+  jobs:
       job1:
         name: deploy on GitHub hosted runner and azure login
         runs-on: ubuntu-latest
         steps:
           - name: Azure login
-          uses: azure/login@v3
-          with:
-            client-id: ${{ secrets.AZURE_CLIENT_ID }}
-            tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-            subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}           
+            uses: azure/login@v3
+            with:
+              client-id: ${{ secrets.AZURE_CLIENT_ID }}
+              tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+              subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}           
         
           
       job2: 
@@ -31,7 +31,7 @@ permissions:
           uses: hashicorp/setup-terraform@v4
           
           - name: Terraform fmt
-            run: terraform fmt
+          run: terraform fmt
             
           - name: Terraform init
             run: terraform init 
