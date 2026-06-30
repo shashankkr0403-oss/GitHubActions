@@ -8,40 +8,39 @@ on:
 permissions:
   id-token: write
   contents: read
-  
-  jobs:
-    job1:
-      name: deploy on GitHub hosted runner and azure login
-      runs-on: ubuntu-latest
-      steps:
-        - name: Azure login
-          uses: azure/login@v3
-          with:
-            client-id: ${{ secrets.AZURE_CLIENT_ID }}
-            tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-            subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}           
+jobs:
+  job1:
+    name: deploy on GitHub hosted runner and azure login
+    runs-on: ubuntu-latest
+    steps:
+      - name: Azure login
+        uses: azure/login@v3
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}           
         
-    job2: 
-      name: setup and run terraform   
-      runs-on: ubuntu-latest
-      steps:
-        - name: Checkout Repository
-          uses: actions/checkout@v4
+  job2: 
+    name: setup and run terraform   
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
             
-        - name: Setup terraform  
-          uses: hashicorp/setup-terraform@v4
+      - name: Setup terraform  
+        uses: hashicorp/setup-terraform@v4
           
-        - name: Terraform fmt
-          run: terraform fmt
+      - name: Terraform fmt
+        run: terraform fmt
             
-        - name: Terraform init
-          run: terraform init 
+      - name: Terraform init
+        run: terraform init 
             
-        - name: Terraform validate
-          run: terraform validate
+      - name: Terraform validate
+        run: terraform validate
             
-        - name: Terraform plan
-          run: terraform plan -input=false -no-color 
+      - name: Terraform plan
+        run: terraform plan -input=false -no-color 
             
-        - name: Terraform apply
-          run: terraform apply -input=false -auto-approve
+      - name: Terraform apply
+        run: terraform apply -input=false -auto-approve
